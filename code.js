@@ -15,6 +15,9 @@ function addBookToLibrary(entry) {
 const container = document.querySelector(".container");
 
 const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, "not read yet");
+const gobletOfFire = new Book("Harry Potter and the Goblet of Fire", "J.K. Rowling", 734, "read");
+const warAndPeace = new Book("War and Peace", "Leo Tolstoy", 1225, "not read yet");
+const nameOfTheWind = new Book("The Name of the Wind", "Patrick Rothfuss", 662, "not read yet");
 
 myLibrary.forEach((book) => {
     displayBookInfo(book);
