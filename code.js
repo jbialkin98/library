@@ -12,48 +12,58 @@ function addBookToLibrary(entry) {
     myLibrary.push(entry);
 }
 
-const bookOne = document.querySelector(".book-one");
+const container = document.querySelector(".container");
 
 const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, "not read yet");
 
-console.log(myLibrary[0]);
 myLibrary.forEach((book) => {
-    bookTitle(book);
-    bookAuthor(book);
-    bookPages(book);
-    bookRead(book);
-    console.log(book.title);
-    console.log(book.author);
-    console.log(book.pages);
-    console.log(book.read);
+    displayBookInfo(book);
 });
 
-// bookOne.textContent = theHobbit.title;
+function displayBookInfo(book) {
+    const bookCard = document.createElement('div');
+    bookCard.classList.add('bookCard');
+    container.appendChild(bookCard);
+    for (let i = 0; i < 4; i++) {
+        switch (i) {
+            case 0:
+                bookTitle(book, bookCard);
+            case 1:
+                bookAuthor(book, bookCard);
+            case 2: 
+                bookPages(book, bookCard);
+            case 3: 
+                bookRead(book, bookCard);
+            default:
+                return;
+        }
+    }
+}
 
-function bookTitle(book) {
+function bookTitle(book, bookCard) {
     const newDiv = document.createElement('div');
     newDiv.classList.add('newDiv');
-    bookOne.appendChild(newDiv);
+    bookCard.appendChild(newDiv);
     newDiv.textContent = book.title;
 }
 
-function bookAuthor(book) {
+function bookAuthor(book, bookCard) {
     const newDiv = document.createElement('div');
     newDiv.classList.add('newDiv');
-    bookOne.appendChild(newDiv);
+    bookCard.appendChild(newDiv);
     newDiv.textContent = book.author;
 }
 
-function bookPages(book) {
+function bookPages(book, bookCard) {
     const newDiv = document.createElement('div');
     newDiv.classList.add('newDiv');
-    bookOne.appendChild(newDiv);
+    bookCard.appendChild(newDiv);
     newDiv.textContent = book.pages;
 }
 
-function bookRead(book) {
+function bookRead(book, bookCard) {
     const newDiv = document.createElement('div');
     newDiv.classList.add('newDiv');
-    bookOne.appendChild(newDiv);
+    bookCard.appendChild(newDiv);
     newDiv.textContent = book.read;
 }
