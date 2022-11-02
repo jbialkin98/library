@@ -1,3 +1,18 @@
+const container = document.querySelector('.container');
+const addNewBookButton = document.querySelector('.newBook');
+const overlay = document.getElementById('overlay');
+const popUp = document.querySelector('.popUpDisplay');
+const closePopUpButton = document.querySelector('.closePopUp');
+
+addNewBookButton.addEventListener('click', () => {
+    openPopUp();
+});
+
+closePopUpButton.addEventListener('click', () => {
+    closePopUp();
+});
+
+
 let myLibrary = [];
 
 function Book(title, author, pages, read) {
@@ -12,7 +27,7 @@ function addBookToLibrary(entry) {
     myLibrary.push(entry);
 }
 
-const container = document.querySelector(".container");
+
 
 const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, "not read yet");
 const gobletOfFire = new Book("Harry Potter and the Goblet of Fire", "J.K. Rowling", 734, "read");
@@ -69,4 +84,14 @@ function bookRead(book, bookCard) {
     newDiv.classList.add('newDiv');
     bookCard.appendChild(newDiv);
     newDiv.textContent = book.read;
+}
+
+function openPopUp() {
+    popUp.classList.add('active');
+    overlay.classList.add('active');
+}
+
+function closePopUp() {
+    popUp.classList.remove('active');
+    overlay.classList.remove('active');
 }
