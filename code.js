@@ -4,6 +4,9 @@ const overlay = document.getElementById('overlay');
 const popUp = document.querySelector('.popUpDisplay');
 const closePopUpButton = document.querySelector('.closePopUp');
 
+const form = document.querySelector('.form');
+form.addEventListener('submit', callbackFunction);
+
 addNewBookButton.addEventListener('click', () => {
     openPopUp();
 });
@@ -94,4 +97,15 @@ function openPopUp() {
 function closePopUp() {
     popUp.classList.remove('active');
     overlay.classList.remove('active');
+}
+
+function callbackFunction(event) {
+    event.preventDefault();
+    const myFormData = new FormData(event.target);
+    
+    const formDataObj = {};
+    myFormData.forEach((value, key) => (formDataObj[key] = value));
+
+    const newEntry = new Book(formDataObj.title, formDataObj.author, formDataObj.pages, formDataObj.read);
+    console.log(myLibrary);
 }
