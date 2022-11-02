@@ -25,6 +25,7 @@ header {
     height: 200px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     padding: 10px;
 }
@@ -42,13 +43,14 @@ header {
     background: none;
     border: none;
     align-self: flex-end;
-    margin-bottom: 20px;
 }
 
-.readButton button {
-    opacity: 0;
-    width: 0;
-    height: 0;
+.readButton.read {
+    background-color: greenyellow;
+}
+
+.readButton.notRead {
+    background-color: red;
 }
 
 img {
