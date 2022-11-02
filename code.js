@@ -107,5 +107,5 @@ function callbackFunction(event) {
     myFormData.forEach((value, key) => (formDataObj[key] = value));
 
     const newEntry = new Book(formDataObj.title, formDataObj.author, formDataObj.pages, formDataObj.read);
-    console.log(myLibrary);
+    displayBookInfo(newEntry);
 }
