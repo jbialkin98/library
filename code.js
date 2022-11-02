@@ -27,7 +27,7 @@ function Book(title, author, pages, read) {
 }
 
 Book.prototype.readStatus = (book, readButton) => {
-    if (book.read === 'read') {
+    if (book.read === 'Read') {
         book.read = 'Not Read';
         readButton.classList.remove('read');
         readButton.classList.add('notRead');
@@ -107,7 +107,7 @@ function bookPages(book, cardContent) {
     const newDiv = document.createElement('div');
     newDiv.classList.add('newDiv');
     cardContent.appendChild(newDiv);
-    newDiv.textContent = book.pages;
+    newDiv.textContent = book.pages + ' pages';
 }
 
 function bookRead(book, bookCard) {
@@ -119,6 +119,7 @@ function bookRead(book, bookCard) {
     readButton.classList.add('readButton');
     readButton.type = 'checkbox';
     readButton.textContent = book.read;
+
     if (book.read === 'Read') {
         readButton.classList.add('read');
     } else if (book.read === 'Not Read') {
@@ -127,6 +128,7 @@ function bookRead(book, bookCard) {
         return;
     }
     cardBottom.appendChild(readButton);
+
     readButton.addEventListener('click', () => {
         book.readStatus(book, readButton);
     });

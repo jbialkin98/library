@@ -59,6 +59,10 @@ img {
     cursor: pointer;
 }
 
+.newBook {
+    margin-left: 15px;
+}
+
 .popUpDisplay {
     border: 10px solid black;
     position: fixed;
