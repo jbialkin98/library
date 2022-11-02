@@ -42,9 +42,22 @@ myLibrary.forEach((book) => {
 });
 
 function displayBookInfo(book) {
+    let index = myLibrary.indexOf(book);
+
     const bookCard = document.createElement('div');
     bookCard.classList.add('bookCard');
     container.appendChild(bookCard);
+
+    const removeButton = document.createElement('button');
+    removeButton.classList.add('removeButton');
+    removeButton.textContent = 'Remove';
+    bookCard.appendChild(removeButton);
+
+    removeButton.addEventListener('click', () => {
+        removeDiv(bookCard);
+        removeFromLibrary(index);
+    });
+
     for (let i = 0; i < 4; i++) {
         switch (i) {
             case 0:
@@ -56,7 +69,7 @@ function displayBookInfo(book) {
             case 3: 
                 bookRead(book, bookCard);
             default:
-                return;
+                return;    
         }
     }
 }
@@ -108,4 +121,12 @@ function callbackFunction(event) {
 
     const newEntry = new Book(formDataObj.title, formDataObj.author, formDataObj.pages, formDataObj.read);
     displayBookInfo(newEntry);
+}
+
+function removeDiv(bookCard) {
+    bookCard.remove();
+}
+
+function removeFromLibrary(index) {
+    myLibrary.splice(index, 1);
 }
