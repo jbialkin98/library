@@ -26,11 +26,19 @@ function Book(title, author, pages, read) {
     addBookToLibrary(this);
 }
 
+Book.prototype.readStatus = (book, readButton) => {
+    if (book.read === 'read') {
+        book.read = 'not read yet';
+    } else {
+        book.read = 'read';
+    }
+    readButton.textContent = book.read;
+    console.log(book.read);
+}
+
 function addBookToLibrary(entry) {
     myLibrary.push(entry);
 }
-
-
 
 const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, "not read yet");
 const gobletOfFire = new Book("Harry Potter and the Goblet of Fire", "J.K. Rowling", 734, "read");
@@ -50,7 +58,7 @@ function displayBookInfo(book) {
 
     const removeButton = document.createElement('button');
     removeButton.classList.add('removeButton');
-    removeButton.textContent = 'Remove';
+    removeButton.innerHTML = '<img src="delete.svg" />';
     bookCard.appendChild(removeButton);
 
     removeButton.addEventListener('click', () => {
@@ -76,7 +84,7 @@ function displayBookInfo(book) {
 
 function bookTitle(book, bookCard) {
     const newDiv = document.createElement('div');
-    newDiv.classList.add('newDiv');
+    newDiv.classList.add('newDiv', 'bookTitle');
     bookCard.appendChild(newDiv);
     newDiv.textContent = book.title;
 }
@@ -96,10 +104,14 @@ function bookPages(book, bookCard) {
 }
 
 function bookRead(book, bookCard) {
-    const newDiv = document.createElement('div');
-    newDiv.classList.add('newDiv');
-    bookCard.appendChild(newDiv);
-    newDiv.textContent = book.read;
+    const readButton = document.createElement('button');
+    readButton.classList.add('readButton');
+    readButton.type = 'checkbox';
+    readButton.textContent = book.read;
+    bookCard.appendChild(readButton);
+    readButton.addEventListener('click', () => {
+        book.readStatus(book, readButton);
+    });
 }
 
 function openPopUp() {

@@ -1,8 +1,18 @@
 * {
     box-sizing: border-box;
+    font-size: 16px;
+    margin: 0;
+}
+
+header {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    padding: 10px;
 }
 
 .container {
+    padding: 10px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
@@ -15,9 +25,36 @@
     height: 200px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    padding: 10px;
+}
 
+.newDiv {
+    font-size: 1.25em;
+    text-align: center;
+}
+
+.bookTitle {
+    font-weight: bold;
+}
+
+.removeButton {
+    background: none;
+    border: none;
+    align-self: flex-end;
+    margin-bottom: 20px;
+}
+
+.readButton button {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+img {
+    width: 23px;
+    height: auto;
+    cursor: pointer;
 }
 
 .popUpDisplay {
