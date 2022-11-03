@@ -1,7 +1,12 @@
+:root {
+    --buttonColor: rgb(0, 179, 250);
+}
+
 * {
     box-sizing: border-box;
     font-size: 16px;
     margin: 0;
+    font-family: 'Roboto', sans-serif;
 }
 
 header {
@@ -45,12 +50,20 @@ header {
     align-self: flex-end;
 }
 
+.readButton {
+    border: none;
+    border-radius: 15px;
+    height: 30px;
+    width: 100px;
+    cursor: pointer;
+}
+
 .readButton.read {
-    background-color: greenyellow;
+    background-color: rgb(64, 238, 0);
 }
 
 .readButton.notRead {
-    background-color: red;
+    background-color: rgb(250, 0, 0);
 }
 
 img {
@@ -59,8 +72,19 @@ img {
     cursor: pointer;
 }
 
+.bookButton {
+    display: flex;
+    justify-content: center;
+}
+
 .newBook {
-    margin-left: 15px;
+    background-color: var(--buttonColor);
+    height: 30px;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    width: 150px;
+    cursor: pointer;
 }
 
 .popUpDisplay {
@@ -68,7 +92,7 @@ img {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -50%) scale(0);
     transition: 200ms ease-in-out;
     z-index: 10;
     background-color: white;
@@ -80,8 +104,6 @@ img {
 .popUpDisplay.active {
     transform: translate(-50%, -50%) scale(1);
 }
-
-
 
 .popUpHeader {
     display: flex;
@@ -119,11 +141,15 @@ img {
     border: 1px solid black;
     padding: 5px;
     width: clamp(150px, 70%, 500px);
+    height: 30px;
 }
 
 .radioButtons {
     display: flex;
     gap: 10px;
+    align-items: center;
+    height: 30px;
+    cursor: pointer;
 }
 
 input[type="radio"] {
@@ -134,6 +160,11 @@ input[type="radio"] {
     width: 100px;
     height: 30px;
     margin-top: 20px;
+    border-radius: 15px;
+    border: none;
+    background-color: var(--buttonColor);
+    color: white;
+    cursor: pointer;
 }
 
 #overlay {
