@@ -21,24 +21,26 @@
             <div class="formGrid">
                 <div class="formPair">
                     <label for="title">Title:</label>
-                    <input type="text" id="title" name="title">
+                    <input type="text" id="title" name="title" required>
                 </div>
                 <div class="formPair">
                     <label for="author">Author:</label>
-                    <input type="text" id="author" name="author">
+                    <input type="text" id="author" name="author" required>
                 </div>
                 <div class="formPair">
                     <label for="pages">Pages:</label>
-                    <input type="text" id="pages" name="pages">
+                    <input type="text" id="pages" name="pages" required>
                 </div>
                 <div class="formPair">
-                    <label for="read">Read?</label>
+                    <p>Read?</p>
                     <div class="radioButtons">
                         <div class="radioButton">
-                            <input type="radio" id="read" name="read" value="Read">Yes</button>
+                            <input type="radio" id="read" name="read" value="Read">
+                            <label for="read">Yes</label>
                         </div>
                         <div class="radioButton">
-                            <input type="radio" id="read" name="read" value="Not Read">No</button>
+                            <input type="radio" id="read" name="read" value="Not Read">
+                            <label for="read">No</label>
                         </div>
                     </div>
                 </div>
