@@ -8,6 +8,7 @@ const form = document.querySelector('.form');
 form.addEventListener('submit', callbackFunction);
 
 addNewBookButton.addEventListener('click', () => {
+    form.reset(); 
     openPopUp();
 });
 
