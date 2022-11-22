@@ -19,26 +19,49 @@ closePopUpButton.addEventListener('click', () => {
 
 let myLibrary = [];
 
-function Book(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-    addBookToLibrary(this);
+// function Book(title, author, pages, read) {
+//     this.title = title;
+//     this.author = author;
+//     this.pages = pages;
+//     this.read = read;
+//     addBookToLibrary(this);
+// }
+
+class Book {
+    constructor(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+        addBookToLibrary(this);
+    }
+
+    readStatus(book, readButton) {
+        if (book.read === 'Read') {
+            book.read = 'Not Read';
+            readButton.classList.remove('read');
+            readButton.classList.add('notRead');
+        } else {
+            book.read = 'Read';
+            readButton.classList.remove('notRead');
+            readButton.classList.add('read');
+        }
+        readButton.textContent = book.read;
+    }
 }
 
-Book.prototype.readStatus = (book, readButton) => {
-    if (book.read === 'Read') {
-        book.read = 'Not Read';
-        readButton.classList.remove('read');
-        readButton.classList.add('notRead');
-    } else {
-        book.read = 'Read';
-        readButton.classList.remove('notRead');
-        readButton.classList.add('read');
-    }
-    readButton.textContent = book.read;
-}
+// Book.prototype.readStatus = (book, readButton) => {
+//     if (book.read === 'Read') {
+//         book.read = 'Not Read';
+//         readButton.classList.remove('read');
+//         readButton.classList.add('notRead');
+//     } else {
+//         book.read = 'Read';
+//         readButton.classList.remove('notRead');
+//         readButton.classList.add('read');
+//     }
+//     readButton.textContent = book.read;
+// }
 
 function addBookToLibrary(entry) {
     myLibrary.push(entry);
